@@ -1,2 +1,2 @@
 # testGEMM
-Simple numpy FLOPS benchmark.
+Simple numpy GEMM FLOPS benchmark.
