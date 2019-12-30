@@ -1,3 +1,6 @@
+# Adapted from:
+# https://github.com/mikecroucher/Jupyter-Matrix-Matrix
+
 import timeit
 import numpy
 import cpuinfo
@@ -7,11 +10,12 @@ def bench_mmm(startn, maxn, step, loops, precision="double"):
     count = 0
 
     #Preallocate results lists
-    avg_gflops = int((1+(maxn-startn)/step))*[0]
-    peak_gflops = int((1+(maxn-startn)/step))*[0]
-    raw_times = [int(loops)*[0] for i in range(int(1+(maxn-startn)/step))]
-    all_gflops = [int(loops)*[0] for i in range(int(1+(maxn-startn)/step))]
-    mat_size = int((1+(maxn-startn)/step))*[0]
+    m = int(1+(maxn-startn)/step)
+    avg_gflops = m*[0]
+    peak_gflops = m*[0]
+    raw_times = [int(loops)*[0] for i in range(m)]
+    all_gflops = [int(loops)*[0] for i in range(m)]
+    mat_size = m*[0]
 
     for n in range(startn, maxn+step, step):
         setup_string = "import numpy as np; \
