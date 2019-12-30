@@ -42,7 +42,7 @@ def bench_mmm(startn, maxn, step, loops, precision="double"):
     plt.plot(mat_size, avg_gflops, '*-', label="Average over %d runs" % loops)
     plt.plot(mat_size, peak_gflops, '*-', label="Peak")
     plt.legend(bbox_to_anchor=(0.5, 0.2), loc=2, borderaxespad=0.)
-    plt.xlabel('Matrix Size, NxN')
+    plt.xlabel('NxN Matrix Size, N')
     plt.ylabel('GFLOP/s, %s precision' % precision)
     plt.title('%s' % cpuinfo.get_cpu_info()["brand"])
     plt.savefig("mmflops-%s.pdf" % precision)
