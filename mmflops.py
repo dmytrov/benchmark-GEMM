@@ -19,6 +19,10 @@ def bench_mmm(startn, maxn, step, loops, precision="double"):
 
     for n in range(startn, maxn+step, step):
         setup_string = "import numpy as np; \
+                n = 1000; \
+                a = np.reshape(np.random.uniform(size=n*n), (n,n)); \
+                b = np.reshape(np.random.uniform(size=n*n), (n,n)); \
+                warmup = a.dot(b); \
                 n = %d; \
                 a = np.reshape(np.random.uniform(size=n*n), (n,n)); \
                 b = np.reshape(np.random.uniform(size=n*n), (n,n))" % n
