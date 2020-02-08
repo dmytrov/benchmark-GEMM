@@ -4,6 +4,7 @@
 import timeit
 import numpy
 import cpuinfo
+from datetime import datetime
 
 
 def bench_mmm(startn, maxn, step, loops, precision="double"):
@@ -49,6 +50,6 @@ def bench_mmm(startn, maxn, step, loops, precision="double"):
     plt.xlabel('NxN Matrix Size, N')
     plt.ylabel('GFLOP/s, %s precision' % precision)
     plt.title('%s' % cpuinfo.get_cpu_info()["brand"])
-    plt.savefig("mmflops-%s.pdf" % precision)
+    plt.savefig(datetime.now().strftime("%Y.%m.%d-%H.%M.%S") + "mmflops-%s.pdf" % precision)
 
     return(max(peak_gflops), raw_times, all_gflops)
