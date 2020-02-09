@@ -11,7 +11,7 @@ def bench_mmm(startn, maxn, step, loops, precision="double"):
     count = 0
 
     #Preallocate results lists
-    m = int(1+(maxn-startn)/step)
+    m = len(range(startn, maxn+step, step))
     avg_gflops = m*[0]
     peak_gflops = m*[0]
     raw_times = [int(loops)*[0] for i in range(m)]
