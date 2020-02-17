@@ -7,18 +7,18 @@ import cpuinfo
 from datetime import datetime
 
 
-def bench_mmm(startn, maxn, step, loops, precision="double"):
+def bench_mmm(sizes, loops, precision="double"):
     count = 0
 
     #Preallocate results lists
-    m = len(range(startn, maxn+step, step))
+    m = len(sizes)
     avg_gflops = m*[0]
     peak_gflops = m*[0]
     raw_times = [int(loops)*[0] for i in range(m)]
     all_gflops = [int(loops)*[0] for i in range(m)]
     mat_size = m*[0]
 
-    for n in range(startn, maxn+step, step):
+    for n in sizes:
         import_string = "import numpy as np;"
         warmup_string = "n = 2500; \
                 a = np.reshape(np.random.uniform(size=n*n), (n,n)); \
