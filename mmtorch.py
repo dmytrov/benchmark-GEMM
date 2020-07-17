@@ -34,7 +34,7 @@ for i in range(5):
     torch.cuda.synchronize()
     print(num_ops / start.elapsed_time(end) / 10**6, "GFLOPS CUDA double")
 
-orch.set_default_dtype(torch.float32)
+torch.set_default_dtype(torch.float32)
 device = torch.cuda.current_device()
 start = torch.cuda.Event(enable_timing=True)
 end = torch.cuda.Event(enable_timing=True)
